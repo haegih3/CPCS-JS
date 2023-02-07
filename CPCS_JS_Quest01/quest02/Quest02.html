@@ -46,8 +46,17 @@
 	<!-- // container -->
 	<footer id="footer"></footer>
 
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 	<script>
+		// jquery
+		$('#tabs li').click(function(){
+			var target = $(this).children().attr('href');
 
+			if(!$(this).hasClass('active')){
+				$(this).addClass('active').siblings().removeClass('active');
+				$(target).addClass('active').siblings().removeClass('active');
+			}
+		})
 	</script>
 </body>
 </html>

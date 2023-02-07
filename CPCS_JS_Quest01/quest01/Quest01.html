@@ -12,10 +12,10 @@
 .Quest01 a:active{text-decoration:none;}
 .Quest01 .gnb{margin:50px auto 0;background:#158052;text-align:center}
 .Quest01 .gnb > ul{display:inline-block;overflow:hidden}
-.Quest01 .gnb .menu{float:left;margin-left:100px;padding:20px 0}
+.Quest01 .gnb .menu{float:left;margin-left:100px;padding:20px 0;}
 .Quest01 .gnb .menu:first-child{margin:0}
 .Quest01 .gnb .depth1{padding:0 20px;}
-.Quest01 .gnb .depth2{height:0;overflow:hidden}
+.Quest01 .gnb .depth2{height:0; overflow:hidden; transition: height 1s}
 .Quest01 .gnb .depth2 ul{overflow:hidden}
 .Quest01 .gnb .depth2 ul > li{margin-top:10px;line-height:1}
 .Quest01 .gnb .depth2 ul > li:first-child{margin-top:20px}
@@ -90,8 +90,15 @@
 	<!-- // container -->
 	<footer id="footer"></footer>
 
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 	<script>
-
+		// jquery
+		$('.menu').mouseover(function(){
+			$('.menu').children('.depth2').css('height', '120px');
+		})
+		$('.menu').mouseout(function(){
+			$('.menu').children('.depth2').css('height', '0');
+		})
 	</script>
 </body>
 </html>
