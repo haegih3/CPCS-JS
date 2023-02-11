@@ -49,16 +49,38 @@
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 	<script>
 		// jquery
-		$('#tabs li').click(function(){
-			var target = $(this).children().attr('href');
+		// $('#tabs li').click(function(){
+		// 	var target = $(this).children().attr('href');
 
-			if(!$(this).hasClass('active')){
-				$(this).addClass('active').siblings().removeClass('active');
-				$(target).addClass('active').siblings().removeClass('active');
-			}
-		})
+		// 	if(!$(this).hasClass('active')){
+		// 		$(this).addClass('active').siblings().removeClass('active');
+		// 		$(target).addClass('active').siblings().removeClass('active');
+		// 	}
+		// })
 
 		//javascript
+		let tabs = document.querySelectorAll('#tabs li');
+		let tabConts = document.querySelectorAll('.tab-contents');
+		
+		tabs.forEach(element => {
+			element.addEventListener('click', function(e){
+				let target = e.target.getAttribute('href');
+				let curr = e.currentTarget;
+				
+				if(!element.classList.contains('active')){
+					tabs.forEach(element => {
+						element.classList.remove('active');
+						curr.classList.add('active');
+					})
+
+					tabConts.forEach(element => {
+						element.classList.remove('active');
+						document.querySelector(target).classList.add('active')
+					});
+				}
+			})
+		});
+		
 		
 	</script>
 </body>
